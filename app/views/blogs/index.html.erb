@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <h3>Blogs</h3>
+    <%= link_to 'Add blog', new_blog_path %>
+    <div class="column">
+      <table class="table">
+        <thead>
+          <tr>
+            <td>Title</td>
+            <td>Subdomain</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @blogs.each do |blog| %>
+            <tr>
+              <td><%= blog.title %></td>
+              <td><%= blog.subdomain %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
