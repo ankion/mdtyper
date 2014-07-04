@@ -27,11 +27,16 @@ class BlogsController < ApplicationController
     authorize @blog
   end
 
-  def update
+  def edit
     @blog = current_user.blogs.find(params[:id])
     authorize @blog
-    if @blog.update_attributes(secure_params)
-      redirect_to blogs_path, :notice => "Blog updated."
+  end
+
+  def update
+    blog = current_user.blogs.find(params[:id])
+    authorize blog
+    if blog.update_attributes(secure_params)
+      redirect_to dashboard_path(blog.subdomain), :notice => "Blog updated."
     else
       redirect_to blogs_path, :alert => "Unable to update blog."
     end
@@ -47,6 +52,6 @@ class BlogsController < ApplicationController
   private
 
   def secure_params
-    params.require(:blog).permit(:title, :subtitle, :desciption, :subdomain)
+    params.require(:blog).permit(:title, :subtitle, :description, :subdomain)
   end
 end

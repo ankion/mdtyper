@@ -14,7 +14,7 @@
           <% @blogs.each do |blog| %>
             <tr>
               <td><%= blog.title %></td>
-              <td><%= blog.subdomain %></td>
+              <td><%= link_to blog.subdomain, dashboard_path(blog.subdomain) %></td>
             </tr>
           <% end %>
         </tbody>
