@@ -16,6 +16,7 @@ gem 'mysql2'
 gem 'pundit'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
+gem 'redcarpet'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_20]
