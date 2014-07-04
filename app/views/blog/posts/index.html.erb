@@ -1,2 +1,7 @@
-<div>posts</div>
 <div><%= @current_blog.title %></div>
+<h3>Posts</h3>
+<% @posts.each do |post| %>
+  <div><%= post.publish_date %></div>
+  <div><%= post.title %></div>
+  <div><%= post.content %></div>
+<% end %>

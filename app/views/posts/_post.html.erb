@@ -1,0 +1,6 @@
+<%= simple_form_for post, :url => (action_name == 'edit' ? blog_post_path(@blog, post) : blog_posts_path) do |f| %>
+  <%= f.input :publish_date %>
+  <%= f.input :title %>
+  <%= f.input :content %>
+  <%= f.submit :class => 'button-xs' %>
+<% end %>

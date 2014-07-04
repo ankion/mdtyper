@@ -1,5 +1,11 @@
 class DashboardController < ApplicationController
+  before_action :find_blog
+
+  def find_blog
+    @blog = Blog.find_by(:subdomain => params[:subdomain])
+  end
+
   def index
-    @blog = Blog.find_by_subdomain(params[:subdomain])
+    @posts = @blog.posts.all
   end
 end

@@ -1,5 +1,6 @@
 class Blog::PostsController < ApplicationController
   before_filter :find_blog
+  layout "blog_site"
 
   def find_blog
     case request.host
@@ -19,5 +20,6 @@ class Blog::PostsController < ApplicationController
   end
 
   def index
+    @posts = @current_blog.posts.all
   end
 end

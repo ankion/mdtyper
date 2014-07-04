@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   constraints(Subdomain) do
     get '/' => 'blog/posts#index'
   end 
@@ -8,6 +7,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   get 'blog/:subdomain/dashboard' => 'dashboard#index', :as => 'dashboard'
-  resources :blogs
+  resources :blogs do
+    resources :posts
+  end
 
 end
