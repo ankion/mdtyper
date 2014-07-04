@@ -1,5 +1,6 @@
 <h1>Dashboard</h1>
 <h2><%= @blog.title %></h2>
+<h3><%= @blog.subtitle %></h3>
 <div>
   <%= link_to 'Edit blog', edit_blog_path(@blog) %>
 </div>
@@ -8,7 +9,7 @@
   <%= link_to 'Add post', new_blog_post_path(@blog) %>
 </div>
 <div>
-  <table>
+  <table class="table">
     <thead>
       <tr>
         <td>Date</td>

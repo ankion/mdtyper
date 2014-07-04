@@ -14,9 +14,13 @@ gem 'devise'
 gem 'high_voltage'
 gem 'mysql2'
 gem 'pundit'
-gem 'simple_form'
+#gem 'simple_form'
+gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form', branch: 'master'
 gem 'therubyracer', :platform=>:ruby
 gem 'redcarpet'
+gem 'momentjs-rails', '~> 2.5.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0.1'
+gem 'font-awesome-sass'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_20]
