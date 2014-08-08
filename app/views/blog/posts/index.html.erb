@@ -12,7 +12,7 @@
       <%= link_to post.title, site_post_path(post) %>
     </h2>
     <p class="lead">
-    by <a href="index.php">Start Bootstrap</a>
+    by <%= @current_blog.user.name %>
     </p>
     <p><span class="glyphicon glyphicon-time"></span> Posted on <%= post.publish_date %></p>
     <hr>
