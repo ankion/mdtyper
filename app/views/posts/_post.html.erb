@@ -1,11 +1,11 @@
 <%= simple_form_for post, 
-  :url => (action_name == 'edit' ? blog_post_path(@blog, post) : blog_posts_path),
+  :url => (action_name == 'edit' ? blog_post_path(@current_blog, post) : blog_posts_path),
   html: { class: 'form-horizontal' },
   wrapper: :horizontal_form do |f| %>
   <%= f.input :publish_date, :as => :string %>
   <%= f.input :title %>
   <%= f.input :content, :input_html => {:rows => 20} %>
-  <%= f.submit :class => 'button-xs' %>
+  <%= f.submit :class => 'btn btn-primary pull-right' %>
 <% end %>
 <script type="text/javascript">
   $(function () {

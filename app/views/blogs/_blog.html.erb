@@ -1,14 +1,9 @@
-<td>
-  <%= link_to blog.title, blog %>
-</td>
-<td>
-  <%= simple_form_for(blog) do |f| %>
+<%= simple_form_for blog,
+  html: { class: 'form-horizontal' },
+  wrapper: :horizontal_form do |f| %>
     <%= f.input :title %>
     <%= f.input :subtitle %>
     <%= f.input :description %>
     <%= f.input :subdomain %>
-    <%= f.submit :class => 'button-xs' %>
+    <%= f.submit :class => 'btn btn-primary pull-right' %>
   <% end %>
-</td>
-<td>
-</td>

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root to: 'visitors#index'
   devise_for :users
   resources :users
+  get 'blog/dashboard' => 'dashboard#index', :as => 'dashboards'
   get 'blog/:subdomain/dashboard' => 'dashboard#index', :as => 'dashboard'
   resources :blogs do
     resources :posts

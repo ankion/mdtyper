@@ -1,20 +1,11 @@
-<h1>Dashboard</h1>
-<h2><%= @blog.title %></h2>
-<h3><%= @blog.subtitle %></h3>
-<div>
-  <%= link_to 'Edit blog', edit_blog_path(@blog) %>
-</div>
-<h3>Posts</h3>
-<div>
-  <%= link_to 'Add post', new_blog_post_path(@blog) %>
-</div>
+<%= render 'layouts/dashboard/toolbar' %>
 <div>
   <table class="table">
     <thead>
       <tr>
-        <td>Date</td>
-        <td>Title</td>
-        <td>&nbsp;</td>
+        <th>Date</th>
+        <th>Title</th>
+        <th>&nbsp;</th>
       </tr>
     </thead>
     <tbody>
@@ -22,7 +13,7 @@
       <tr>
         <td><%= post.publish_date %></td>
         <td><%= post.title %></td>
-        <td><%= link_to 'Edit', edit_blog_post_path(@blog, post) %></td>
+        <td><%= link_to 'Edit', edit_blog_post_path(@current_blog, post) %></td>
       </tr>
     <% end %>
     </tbody>

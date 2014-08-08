@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
   before_filter :authenticate_user!
   after_action :verify_authorized
+  layout "dashboard_site"
 
   def index
     @blogs = current_user.blogs.all
