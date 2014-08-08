@@ -27,7 +27,7 @@ class BlogPolicy
   end
 
   def update?
-    @current_user.admin? or @current_user == @user
+    @current_user.admin? or @current_user == @user.user
   end
 
   def destroy?

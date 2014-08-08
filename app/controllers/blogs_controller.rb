@@ -23,17 +23,17 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @blog = current_user.blogs.find(params[:id])
+    @blog = current_user.blogs.find_by(:subdomain => params[:id])
     authorize @blog
   end
 
   def edit
-    @blog = current_user.blogs.find(params[:id])
+    @blog = current_user.blogs.find_by(:subdomain => params[:id])
     authorize @blog
   end
 
   def update
-    blog = current_user.blogs.find(params[:id])
+    blog = current_user.blogs.find_by(:subdomain => params[:id])
     authorize blog
     if blog.update_attributes(secure_params)
       redirect_to dashboard_path(blog.subdomain), :notice => "Blog updated."
@@ -43,7 +43,7 @@ class BlogsController < ApplicationController
   end
 
   def destroy
-    blog = current_user.blogs.find(params[:id])
+    blog = current_user.blogs.find_by(:subdomain => params[:id])
     authorize blog
     blog.destroy
     redirect_to blogs_path, :notice => "Blog deleted."
