@@ -1,7 +1,35 @@
-<div><%= @current_blog.title %></div>
-<h3>Posts</h3>
-<% @posts.each do |post| %>
-  <h2><%= post.publish_date %></h2>
-  <h1><%= post.title %></h1>
-  <div><%= markdown(post.content).html_safe %></div>
-<% end %>
+<!-- Blog Entries Column -->
+<div class="col-md-8">
+
+  <h1 class="page-header">
+    <%= @current_blog.title %>
+    <small><%= @current_blog.subtitle %></small>
+  </h1>
+
+  <% @posts.each do |post| %>
+    <!-- First Blog Post -->
+    <h2>
+      <%= link_to post.title, site_post_path(post) %>
+    </h2>
+    <p class="lead">
+    by <a href="index.php">Start Bootstrap</a>
+    </p>
+    <p><span class="glyphicon glyphicon-time"></span> Posted on <%= post.publish_date %></p>
+    <hr>
+    <%= markdown(post.content).html_safe %>
+    <a class="btn btn-primary" href="<%= site_post_path(post) %>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+    <hr>
+  <% end %>
+
+  <!-- Pager -->
+  <ul class="pager">
+    <li class="previous">
+    <a href="#">&larr; Older</a>
+    </li>
+    <li class="next">
+    <a href="#">Newer &rarr;</a>
+    </li>
+  </ul>
+
+</div>

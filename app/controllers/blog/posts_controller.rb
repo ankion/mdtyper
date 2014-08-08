@@ -22,4 +22,8 @@ class Blog::PostsController < ApplicationController
   def index
     @posts = @current_blog.posts.all
   end
+
+  def show
+    @post = @current_blog.posts.find(params[:id])
+  end
 end
