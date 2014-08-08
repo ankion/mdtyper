@@ -11,7 +11,7 @@
     <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= post.publish_date %></td>
+        <td><%= localize(post.publish_date, :format => :long) %></td>
         <td><%= post.title %></td>
         <td><%= link_to 'Edit', edit_blog_post_path(@current_blog, post) %></td>
       </tr>

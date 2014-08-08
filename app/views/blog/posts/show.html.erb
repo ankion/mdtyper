@@ -8,13 +8,13 @@
 
   <!-- Author -->
   <p class="lead">
-  by <a href="#">Start Bootstrap</a>
+  by <%= @current_blog.user.name %>
   </p>
 
   <hr>
 
   <!-- Date/Time -->
-  <p><span class="glyphicon glyphicon-time"></span> Posted on <%= @post.publish_date %></p>
+  <p><span class="glyphicon glyphicon-time"></span> Posted on <%= localize(@post.publish_date, :format => :long) %></p>
 
   <hr>
 

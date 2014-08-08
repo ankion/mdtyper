@@ -2,7 +2,7 @@
   :url => (action_name == 'edit' ? blog_post_path(@current_blog, post) : blog_posts_path),
   html: { class: 'form-horizontal' },
   wrapper: :horizontal_form do |f| %>
-  <%= f.input :publish_date, :as => :string %>
+  <%= f.input :publish_date, :as => :string, :input_html => { :value => f.object.publish_date.strftime('%Y-%m-%d %T') } %>
   <%= f.input :title %>
   <%= f.input :content, :input_html => {:rows => 20} %>
   <%= f.submit :class => 'btn btn-primary pull-right' %>
@@ -10,8 +10,7 @@
 <script type="text/javascript">
   $(function () {
       $('#post_publish_date').datetimepicker({
-        pickTime: false,
-        format: "YYYY-MM-DD"
+        format: "YYYY-MM-DD hh:mm:ss"
       });
   });
 </script>

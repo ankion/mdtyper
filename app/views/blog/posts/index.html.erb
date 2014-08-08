@@ -14,7 +14,7 @@
     <p class="lead">
     by <%= @current_blog.user.name %>
     </p>
-    <p><span class="glyphicon glyphicon-time"></span> Posted on <%= post.publish_date %></p>
+    <p><span class="glyphicon glyphicon-time"></span> Posted on <%= localize(post.publish_date, :format => :long) %></p>
     <hr>
     <%= markdown(post.content).html_safe %>
     <a class="btn btn-primary" href="<%= site_post_path(post) %>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
