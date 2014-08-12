@@ -4,13 +4,26 @@
   wrapper: :horizontal_form do |f| %>
   <%= f.input :publish_date, :as => :string, :input_html => { :value => f.object.publish_date.strftime('%Y-%m-%d %T') } %>
   <%= f.input :title %>
-  <%= f.input :content, :input_html => {:rows => 20} %>
-  <%= f.submit :class => 'btn btn-primary pull-right' %>
+  <%= f.input :content, :as => :hidden %>
+  <div class="editor_input well col-sm-9 col-sm-offset-3">
+  <%= content_tag :div, post.content, :id => 'editor' %>
+  </div>
+  <%= f.submit :class => 'btn btn-primary pull-right', :id => 'submit' %>
 <% end %>
 <script type="text/javascript">
   $(function () {
       $('#post_publish_date').datetimepicker({
         format: "YYYY-MM-DD hh:mm:ss"
       });
+       var editor = ace.edit("editor");
+       editor.setShowPrintMargin(false);
+       editor.renderer.setShowGutter(false);
+       editor.setTheme("ace/theme/github");
+       editor.getSession().setMode("ace/mode/markdown");
+
+       var textarea = $('#post_content');
+       $('#submit').on('click', function() {
+         textarea.val(editor.getSession().getValue());
+       });
   });
 </script>

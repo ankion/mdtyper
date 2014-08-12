@@ -21,6 +21,7 @@ gem 'redcarpet'
 gem 'momentjs-rails', '~> 2.5.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0.1'
 gem 'font-awesome-sass'
+gem 'ace-rails-ap'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_20]
