@@ -1,7 +1,8 @@
-<%= simple_form_for blog,
+<%= simple_form_for blog, :url => params[:id] ? blog_path(params[:id]) : nil,
   html: { class: 'form-horizontal' },
   wrapper: :horizontal_form do |f| %>
     <%= f.input :subdomain, :wrapper => :append do %>
+      <%= content_tag :span, "http://", :class => 'input-group-addon' %>
       <%= f.input_field :subdomain, :class => 'form-control' %>
       <%= content_tag :span, ".#{Rails.application.secrets.domain_name}", :class => 'input-group-addon' %>
     <% end %>

@@ -34,12 +34,12 @@ class BlogsController < ApplicationController
   end
 
   def update
-    blog = current_user.blogs.find_by(:subdomain => params[:id])
-    authorize blog
-    if blog.update_attributes(secure_params)
-      redirect_to dashboard_path(blog.subdomain), :notice => "Blog updated."
+    @blog = current_user.blogs.find_by(:subdomain => params[:id])
+    authorize @blog
+    if @blog.update_attributes(secure_params)
+      redirect_to dashboard_path(@blog), :notice => "Blog updated."
     else
-      redirect_to blogs_path, :alert => "Unable to update blog."
+      render :edit, :alert => "Unable to update blog."
     end
   end
 
