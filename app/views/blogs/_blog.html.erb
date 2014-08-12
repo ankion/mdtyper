@@ -3,7 +3,7 @@
   wrapper: :horizontal_form do |f| %>
     <%= f.input :subdomain, :wrapper => :append do %>
       <%= f.input_field :subdomain, :class => 'form-control' %>
-      <span class="input-group-addon">.mdwriter.io</span>
+      <%= content_tag :span, ".#{Rails.application.secrets.domain_name}", :class => 'input-group-addon' %>
     <% end %>
     <%= f.input :title %>
     <%= f.input :subtitle %>
