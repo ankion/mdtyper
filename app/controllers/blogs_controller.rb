@@ -14,10 +14,10 @@ class BlogsController < ApplicationController
   end
 
   def create
-    blog = current_user.blogs.new(secure_params)
-    authorize blog
-    if blog.save
-      redirect_to blogs_path, :notice => "Blog added."
+    @blog = current_user.blogs.new(secure_params)
+    authorize @blog
+    if @blog.save
+      redirect_to dashboard_path(@blog), :notice => "Blog added."
     else
       render :new
     end

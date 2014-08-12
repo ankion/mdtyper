@@ -1,9 +1,12 @@
 <%= simple_form_for blog,
   html: { class: 'form-horizontal' },
   wrapper: :horizontal_form do |f| %>
+    <%= f.input :subdomain, :wrapper => :append do %>
+      <%= f.input_field :subdomain, :class => 'form-control' %>
+      <span class="input-group-addon">.mdwriter.io</span>
+    <% end %>
     <%= f.input :title %>
     <%= f.input :subtitle %>
     <%= f.input :description %>
-    <%= f.input :subdomain %>
     <%= f.submit :class => 'btn btn-primary pull-right' %>
   <% end %>
