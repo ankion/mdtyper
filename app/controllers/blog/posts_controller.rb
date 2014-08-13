@@ -20,10 +20,12 @@ class Blog::PostsController < ApplicationController
   end
 
   def index
-    @posts = @current_blog.posts.all
+    @posts = @current_blog.posts.all.order('publish_date DESC')
+    @categories = @current_blog.categories.all
   end
 
   def show
     @post = @current_blog.posts.find(params[:id])
+    @categories = @current_blog.categories.all
   end
 end
