@@ -1,21 +1,21 @@
 class BlogsController < ApplicationController
   before_filter :authenticate_user!
-  after_action :verify_authorized
+  #after_action :verify_authorized
   layout "dashboard_site"
 
   def index
     @blogs = current_user.blogs.all
-    authorize Blog
+    #authorize Blog
   end
 
   def new
     @blog = current_user.blogs.new
-    authorize @blog
+    #authorize @blog
   end
 
   def create
     @blog = current_user.blogs.new(secure_params)
-    authorize @blog
+    #authorize @blog
     if @blog.save
       redirect_to dashboard_path(@blog), :notice => "Blog added."
     else
@@ -25,17 +25,17 @@ class BlogsController < ApplicationController
 
   def show
     @blog = current_user.blogs.find_by(:subdomain => params[:id])
-    authorize @blog
+    #authorize @blog
   end
 
   def edit
     @blog = current_user.blogs.find_by(:subdomain => params[:id])
-    authorize @blog
+    #authorize @blog
   end
 
   def update
     @blog = current_user.blogs.find_by(:subdomain => params[:id])
-    authorize @blog
+    #authorize @blog
     if @blog.update_attributes(secure_params)
       redirect_to dashboard_path(@blog), :notice => "Blog updated."
     else
@@ -45,7 +45,7 @@ class BlogsController < ApplicationController
 
   def destroy
     blog = current_user.blogs.find_by(:subdomain => params[:id])
-    authorize blog
+    #authorize blog
     blog.destroy
     redirect_to blogs_path, :notice => "Blog deleted."
   end

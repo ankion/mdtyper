@@ -1,0 +1,37 @@
+<%= render 'layouts/dashboard/blog_toolbar', :current_blog => @current_blog %>
+<hr>
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= link_to 'Edit', edit_blog_category_path(@current_blog, category) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<hr>
+<div>
+  <p>Add category</p>
+  <%= simple_form_for @category,
+    url: blog_categories_path,
+    html: { class: 'form-horizontal' },
+    wrapper: :horizontal_form do |f| %>
+    <div class="row">
+      <div class="col-md-4">
+        <%= f.input :name %>
+      </div>
+      <div class="col-md-2">
+        <%= f.submit :class => 'btn btn-primary pull-right' %>
+      </div>
+    </div>
+  <% end %>
+</div>

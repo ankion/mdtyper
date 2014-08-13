@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'blog/:subdomain/dashboard' => 'dashboard#index', :as => 'dashboard'
   resources :blogs do
     resources :posts
+    resources :categories
   end
 
 end

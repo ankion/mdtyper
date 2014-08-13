@@ -1,0 +1,10 @@
+<div class="btn-toolbar" role="toolbar">
+  <div class="btn-group">
+    <a href="<%= edit_blog_path(current_blog) %>" class="btn btn-default <%= 'active' if params[:controller] == 'blogs' and params[:action] == 'edit' %>">
+      Settings
+    </a>
+    <a href="<%= blog_categories_path(current_blog) %>" class="btn btn-default <%= 'active' if params[:controller] == 'categories' %>">
+      Categories
+    </a>
+  </div>
+</div>

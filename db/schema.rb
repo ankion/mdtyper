@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140808085946) do
+ActiveRecord::Schema.define(version: 20140813035615) do
 
   create_table "blogs", force: true do |t|
     t.integer  "user_id"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20140808085946) do
   end
 
   add_index "blogs", ["subdomain"], name: "index_blogs_on_subdomain", unique: true, using: :btree
+
+  create_table "categories", force: true do |t|
+    t.integer  "blog_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["blog_id"], name: "index_categories_on_blog_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.integer  "blog_id"
