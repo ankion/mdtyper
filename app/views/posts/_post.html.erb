@@ -8,6 +8,10 @@
   <div class="editor_input well col-sm-9 col-sm-offset-3">
   <%= content_tag :div, post.content, :id => 'editor' %>
   </div>
+
+  <div>
+    <%= f.association :categories, collection: @categories, as: :check_boxes, wrapper: :horizontal_radio_and_checkboxes %>
+  </div>
   <%= f.submit :class => 'btn btn-primary pull-right', :id => 'submit' %>
 <% end %>
 <script type="text/javascript">

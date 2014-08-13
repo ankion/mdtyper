@@ -21,6 +21,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = @current_blog.posts.find(params[:id])
+    @categories = @current_blog.categories.all
   end
 
   def update
@@ -33,6 +34,6 @@ class PostsController < ApplicationController
   end
 
   def secure_params
-    params.require(:post).permit(:publish_date, :title, :content)
+    params.require(:post).permit(:publish_date, :title, :content, :category_ids => [], :categories_attributes => [:id, :name])
   end
 end
