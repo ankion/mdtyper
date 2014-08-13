@@ -5,6 +5,7 @@
     <thead>
       <tr>
         <th>Category</th>
+        <th>Posts Count</th>
         <th>&nbsp;</th>
       </tr>
     </thead>
@@ -12,6 +13,7 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.name %></td>
+        <td><%= category.post_categoryships_count %></td>
         <td><%= link_to 'Edit', edit_blog_category_path(@current_blog, category) %></td>
       </tr>
     <% end %>
