@@ -8,4 +8,4 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 Rails.application.config.assets.precompile += %w( blog_home.css dashboard.css)
-Rails.application.config.assets.precompile += %w( dashboard.js)
+Rails.application.config.assets.precompile += %w( blog_site.js dashboard.js)
