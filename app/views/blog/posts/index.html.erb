@@ -16,8 +16,11 @@
     </p>
     <p><span class="glyphicon glyphicon-time"></span> Posted on <%= localize(post.publish_date, :format => :long) %></p>
     <hr>
-    <%= markdown(post.content).html_safe %>
+    <% post_contents = post.content.split('<!--more-->') %>
+    <%= markdown(post_contents.first).html_safe %>
+    <% if post_contents.count > 1 %>
     <a class="btn btn-primary" href="<%= site_post_path(post) %>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+    <% end %>
 
     <hr>
   <% end %>
