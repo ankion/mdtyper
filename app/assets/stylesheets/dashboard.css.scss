@@ -1,6 +1,9 @@
+
 // import the CSS framework
 @import "bootstrap";
 @import 'bootstrap-datetimepicker';
+@import 'font-awesome';
+@import 'editor';
 
 // make all images responsive by default
 img {
@@ -30,15 +33,3 @@ footer {
   margin: 50px 0;
 }
 
-#editor { 
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.editor_input {
-  position: relative;
-  height: 30em;
-}

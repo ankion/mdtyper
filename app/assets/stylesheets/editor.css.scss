@@ -1,0 +1,20 @@
+.md-editor {
+  @extend .well;
+  @extend .col-sm-9;
+  @extend .col-sm-offset-3;
+  margin-top: 1em;
+  position: relative;
+  height: 30em;
+  #editor { 
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.md-toolbar {
+  @extend .col-sm-9;
+  @extend .col-sm-offset-3;
+}
