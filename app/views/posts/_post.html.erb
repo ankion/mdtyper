@@ -6,7 +6,6 @@
   <%= f.input :title %>
   <%= f.input :content, :label => false %>
     <%= f.association :categories, collection: @categories, as: :check_boxes, wrapper: :horizontal_radio_and_checkboxes %>
-  </div>
   <%= f.submit :class => 'btn btn-primary pull-right', :id => 'submit' %>
 <% end %>
 <% content_for :javascript do %>
