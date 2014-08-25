@@ -9,9 +9,12 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-<!-- Navigation -->
-    <%= render 'layouts/blog/navigation' %>
-
+    <header>
+      <h1 class="page-header">
+        <%= link_to @current_blog.title, site_posts_path %>
+        <small><%= @current_blog.subtitle %></small>
+      </h1>
+    </header>
     <!-- Page Content -->
     <div class="container">
 
@@ -27,9 +30,6 @@
 
                 <!-- Blog Categories Well -->
                 <%= render 'layouts/blog/categories' %>
-
-                <!-- Side Widget Well -->
-                <%= render 'layouts/blog/widget' %>
 
             </div>
 
