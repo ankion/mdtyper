@@ -30,6 +30,7 @@ class BlogsController < ApplicationController
 
   def edit
     @blog = current_user.blogs.find_by(:subdomain => params[:id])
+    @current_blog = @blog
     #authorize @blog
   end
 
@@ -53,6 +54,6 @@ class BlogsController < ApplicationController
   private
 
   def secure_params
-    params.require(:blog).permit(:title, :subtitle, :description, :subdomain)
+    params.require(:blog).permit(:title, :subtitle, :description, :subdomain, :filepicker_key)
   end
 end

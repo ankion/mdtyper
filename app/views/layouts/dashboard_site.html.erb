@@ -29,5 +29,9 @@
 
     </div>
     <!-- /.container -->
+    <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+    <% if @current_blog %>
+    <script type="text/javascript">filepicker.setKey('<%= @current_blog.filepicker_key %>');</script>
+    <% end %>
   </body>
 </html>

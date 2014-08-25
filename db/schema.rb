@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813072236) do
+ActiveRecord::Schema.define(version: 20140825071935) do
 
   create_table "blogs", force: true do |t|
     t.integer  "user_id"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140813072236) do
     t.string   "subdomain"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "filepicker_key"
   end
 
   add_index "blogs", ["subdomain"], name: "index_blogs_on_subdomain", unique: true, using: :btree
