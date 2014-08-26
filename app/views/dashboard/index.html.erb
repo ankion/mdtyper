@@ -6,6 +6,7 @@
       <tr>
         <th>Date</th>
         <th>Title</th>
+        <th>Status</th>
         <th>&nbsp;</th>
       </tr>
     </thead>
@@ -14,6 +15,7 @@
       <tr>
         <td><%= localize(post.publish_date, :format => :long) %></td>
         <td><%= post.title %></td>
+        <td><%= post.status %></td>
         <td><%= link_to 'Edit', edit_blog_post_path(@current_blog, post) %></td>
       </tr>
     <% end %>

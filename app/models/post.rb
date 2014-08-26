@@ -6,6 +6,11 @@ class Post < ActiveRecord::Base
   after_initialize :assign_values
   chinese_permalink :title
 
+  enum status: [:draft, :publish]
+
+  default_scope { order('publish_date DESC') }
+  scope :publish, -> { where(:status => self.statuses[:publish]) }
+
   def assign_values
     self.publish_date ||= Time.now
   end

@@ -24,12 +24,12 @@ class Blog::PostsController < ApplicationController
   end
 
   def index
-    @posts = @current_blog.posts.all.order('publish_date DESC').page(params[:page]).per(per_page)
+    @posts = @current_blog.posts.publish.page(params[:page]).per(per_page)
     @categories = @current_blog.categories.all
   end
 
   def show
-    @post = @current_blog.posts.find(params[:id])
+    @post = @current_blog.posts.publish.find(params[:id])
     @categories = @current_blog.categories.all
   end
 end
