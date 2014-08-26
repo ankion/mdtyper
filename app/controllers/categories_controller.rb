@@ -20,6 +20,15 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def destroy
+    category = @current_blog.categories.find(params[:id])
+    if category.destroy
+      redirect_to blog_categories_path(@current_blog), :notice => "Category removed."
+    else
+      redirect_to blog_categories_path(@current_blog), :notice => "Unable to remove category."
+    end
+  end
+
   def secure_params
     params.require(:category).permit(:name)
   end
