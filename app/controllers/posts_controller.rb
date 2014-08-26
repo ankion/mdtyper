@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   def new
     @post = @current_blog.posts.new
+    @categories = @current_blog.categories.all
   end
 
   def create
@@ -34,6 +35,6 @@ class PostsController < ApplicationController
   end
 
   def secure_params
-    params.require(:post).permit(:publish_date, :title, :content, :category_ids => [], :categories_attributes => [:id, :name])
+    params.require(:post).permit(:publish_date, :title, :permalink, :content, :category_ids => [], :categories_attributes => [:id, :name])
   end
 end

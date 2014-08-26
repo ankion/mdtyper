@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140826010809) do
+ActiveRecord::Schema.define(version: 20140826081041) do
 
   create_table "blogs", force: true do |t|
     t.integer  "user_id"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20140826010809) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "permalink"
   end
 
   add_index "posts", ["blog_id"], name: "index_posts_on_blog_id", using: :btree

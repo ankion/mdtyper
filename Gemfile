@@ -26,6 +26,8 @@ gem 'font-awesome-sass'
 gem 'ace-rails-ap'
 gem 'kaminari'
 gem 'figaro'
+gem 'chinese_permalink', github: 'ankion/chinese_permalink', branch: 'master'
+
 # assets
 gem 'rails-assets-highlightjs'
 
