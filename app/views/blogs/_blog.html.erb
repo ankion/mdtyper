@@ -6,6 +6,10 @@
       <%= f.input_field :subdomain, :class => 'form-control' %>
       <%= content_tag :span, ".#{Rails.application.secrets.domain_name}", :class => 'input-group-addon' %>
     <% end %>
+    <%= f.input :fqdn, :wrapper => :append do %>
+      <%= content_tag :span, "http://", :class => 'input-group-addon' %>
+      <%= f.input_field :fqdn, :class => 'form-control' %>
+    <% end %>
     <%= f.input :title %>
     <%= f.input :subtitle %>
     <%= f.input :description %>

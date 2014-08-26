@@ -4,16 +4,16 @@ class Blog::PostsController < ApplicationController
 
   def find_blog
     case request.host
-    when "mdwriter.dev", nil
+    when Rails.application.secrets.domain_name, nil
     else     
-      if request.host.index("mdwriter.dev")
+      if request.host.index(Rails.application.secrets.domain_name)
         @current_blog = Blog.find_by_subdomain(request.host.split('.').first)
-      #else
-        #@current_blog = Blog.find_by_fqdn(request.host)
+      else
+        @current_blog = Blog.find_by_fqdn(request.host)
       end
 
       if !@current_blog
-        redirect_to "mdwriter.dev"
+        redirect_to Rails.application.secrets.domain_name
       end
 
     end  

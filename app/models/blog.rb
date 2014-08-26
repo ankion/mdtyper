@@ -3,7 +3,7 @@ class Blog < ActiveRecord::Base
   has_many :posts, :dependent => :destroy
   has_many :categories, :dependent => :destroy
   validates_presence_of :subdomain, :title
-  validates_uniqueness_of :subdomain
+  validates_uniqueness_of :subdomain, :fqdn
   validates_format_of :subdomain, :with => /\A[a-z][a-z0-9]{2,17}\z/i
   validates_exclusion_of :subdomain, :in => [
     "www",
