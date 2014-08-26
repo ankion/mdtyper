@@ -22,10 +22,10 @@
   <!-- Pager -->
   <ul class="pager">
     <li class="previous">
-    <a href="#">&larr; Older</a>
+    <%= link_to_next_page @posts, sanitize("&larr; Older") %>
     </li>
     <li class="next">
-    <a href="#">Newer &rarr;</a>
+    <%= link_to_previous_page @posts, sanitize("Newer &rarr;") %>
     </li>
   </ul>
 

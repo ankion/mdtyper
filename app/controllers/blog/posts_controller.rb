@@ -19,8 +19,12 @@ class Blog::PostsController < ApplicationController
     end  
   end
 
+  def per_page
+    @current_blog.per_page || 10
+  end
+
   def index
-    @posts = @current_blog.posts.all.order('publish_date DESC')
+    @posts = @current_blog.posts.all.order('publish_date DESC').page(params[:page]).per(per_page)
     @categories = @current_blog.categories.all
   end
 

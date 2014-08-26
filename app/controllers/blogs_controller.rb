@@ -54,6 +54,6 @@ class BlogsController < ApplicationController
   private
 
   def secure_params
-    params.require(:blog).permit(:title, :subtitle, :description, :subdomain, :filepicker_key, :disqus_key)
+    params.require(:blog).permit(:title, :subtitle, :description, :subdomain, :filepicker_key, :disqus_key, :per_page)
   end
 end
