@@ -3,6 +3,9 @@
     <a href="<%= new_blog_post_path(@current_blog) %>" class="btn btn-default">
       <span class="glyphicon glyphicon-plus"></span> Add post
     </a>
+    <a href="//<%= @current_blog.fqdn.blank? ? "#{@current_blog.subdomain}.#{Rails.application.secrets.domain_name}" : @current_blog.fqdn %>" class="btn btn-default" target="_blank">
+      <span class="glyphicon glyphicon-cog"></span> Visit blog
+    </a>
     <a href="<%= edit_blog_path(@current_blog) %>" class="btn btn-default">
       <span class="glyphicon glyphicon-cog"></span> Edit blog
     </a>
