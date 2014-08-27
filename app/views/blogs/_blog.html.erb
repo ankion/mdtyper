@@ -8,7 +8,7 @@
     <% end %>
     <%= f.input :fqdn, :wrapper => :append do %>
       <%= content_tag :span, "http://", :class => 'input-group-addon' %>
-      <%= f.input_field :fqdn, :class => 'form-control' %>
+      <%= f.input_field :fqdn, :class => 'form-control', :placeholder => 'Blank for not use' %>
     <% end %>
     <%= f.input :title %>
     <%= f.input :subtitle %>
