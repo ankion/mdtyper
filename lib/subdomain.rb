@@ -2,7 +2,7 @@ class Subdomain
   def self.matches?(request)
 
     case request.host
-    when "mdwriter.dev", nil
+    when Rails.application.secrets.domain_name, nil
       false
     else
       true

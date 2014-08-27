@@ -13,7 +13,7 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Mdwriter
+module Mdtyper
   class Application < Rails::Application
 
     config.generators do |g|

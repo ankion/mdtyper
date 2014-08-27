@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Mdwriter" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Mdwriter" %>">
+    <title><%= content_for?(:title) ? yield(:title) : Rails.application.secrets.app_name %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : Rails.application.secrets.app_name %>">
     <%= stylesheet_link_tag 'dashboard', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
