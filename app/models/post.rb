@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
 
   enum status: [:draft, :publish]
 
-  default_scope { order('publish_date DESC') }
+  default_scope { where(:deleted => false).order('publish_date DESC') }
   scope :publish, -> { where(:status => self.statuses[:publish]) }
 
   def assign_values

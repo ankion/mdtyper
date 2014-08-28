@@ -26,11 +26,31 @@ class PostsController < ApplicationController
   end
 
   def update
-    post = @current_blog.posts.find(params[:id])
-    if post.update_attributes(secure_params)
+    @post = @current_blog.posts.find(params[:id])
+    if @post.update_attributes(secure_params)
       redirect_to dashboard_path(@current_blog), :notice => "Post updated."
     else
       render :edit
+    end
+  end
+
+  def destroy
+    post = @current_blog.posts.find(params[:id])
+    post.deleted = true
+    if post.save
+      redirect_to dashboard_path(@current_blog), :notice => "Post destroyed. #{ActionController::Base.helpers.link_to 'Undo', revert_blog_post_path(:id => post.id)}"
+    else
+      redirect_to dashboard_path(@current_blog), :notice => "Unable to destroy post."
+    end
+  end
+
+  def revert
+    post = @current_blog.posts.unscoped.find(params[:id])
+    post.deleted = false
+    if post.save
+      redirect_to dashboard_path(@current_blog), :notice => "Post reverted."
+    else
+      redirect_to dashboard_path(@current_blog), :notice => "Unable to revert post."
     end
   end
 

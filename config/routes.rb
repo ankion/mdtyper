@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get 'blog/dashboard' => 'dashboard#index', :as => 'dashboards'
   get 'blog/:subdomain/dashboard' => 'dashboard#index', :as => 'dashboard'
   resources :blogs do
-    resources :posts
+    resources :posts do
+      get 'revert', :on => :member
+    end
     resources :categories
   end
 
