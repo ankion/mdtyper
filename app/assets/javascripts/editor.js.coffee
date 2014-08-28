@@ -23,6 +23,7 @@
   editor = ace.edit('editor')
   editor.session.setValue(ta_obj.val(), -1)
   editor.setShowPrintMargin(false)
+  editor.session.setUseWrapMode(true)
   editor.renderer.setShowGutter(false)
   editor.setTheme("ace/theme/github")
   editor.getSession().setMode("ace/mode/markdown")
