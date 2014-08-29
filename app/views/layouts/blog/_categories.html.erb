@@ -1,14 +1,11 @@
-                <div class="well">
-                    <h4>Blog Categories</h4>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                              <% @categories.each do |category| %>
-                                <li><a href="#"><%= category.name %></a> (<%= category.post_categoryships_count %>)</li>
-                              <% end %>
-                            </ul>
-                        </div>
-                        <!-- /.col-lg-6 -->
-                    </div>
-                    <!-- /.row -->
-                </div>
+  <aside>
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="sidebar-brand">Blog Categories</li>
+        <% @categories.each do |category| %>
+          <li><a href="#"><%= category.name %> (<%= category.post_categoryships_count %>)</a></li>
+        <% end %>
+      </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+  </aside>

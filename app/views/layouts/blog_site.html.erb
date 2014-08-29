@@ -9,29 +9,22 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <header>
+    <div id="wrapper">
+    <header class="header">
+      <a href="#sidebar-toggle" id="sidebar-toggle" class="pull-left"><span class="glyphicon glyphicon-list"></span></a>
       <h1 class="page-header">
         <%= link_to @current_blog.title, site_posts_path %>
-        <small><%= @current_blog.subtitle %></small>
+        <small class="hidden-xs"><%= @current_blog.subtitle %></small>
       </h1>
     </header>
+    <!-- Sidebar -->
+    <%= render 'layouts/blog/categories' %>
     <!-- Page Content -->
     <div class="container">
 
         <div class="row">
 
             <%= yield %>
-
-            <!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-4">
-
-                <!-- Blog Search Well -->
-                <%= render 'layouts/blog/search' %>
-
-                <!-- Blog Categories Well -->
-                <%= render 'layouts/blog/categories' %>
-
-            </div>
 
         </div>
         <!-- /.row -->
@@ -43,6 +36,7 @@
 
     </div>
     <!-- /.container -->
+    </div>
     <%= javascript_include_tag 'blog_site', 'data-turbolinks-track' => true %>
   </body>
 </html>
