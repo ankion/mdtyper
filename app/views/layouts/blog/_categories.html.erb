@@ -3,7 +3,7 @@
       <ul class="sidebar-nav">
         <li class="sidebar-brand">Blog Categories</li>
         <% @categories.each do |category| %>
-          <li><a href="#"><%= category.name %> (<%= category.post_categoryships_count %>)</a></li>
+          <li><a href="<%= site_category_path(category) %>"><%= category.name %></a></li>
         <% end %>
       </ul>
     </div>
