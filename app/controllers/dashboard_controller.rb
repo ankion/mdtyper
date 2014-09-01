@@ -13,7 +13,7 @@ class DashboardController < ApplicationController
   end
 
   def index
-    authorize @current_blog
+    authorize Blog
     if @current_blog.blank?
       redirect_to new_blog_path, :alert => "Create a blog first."
       return
