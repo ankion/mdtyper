@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  before_filter :authenticate_user!
+  after_action :verify_authorized
   before_action :find_blog
   layout "dashboard_site"
 
@@ -9,10 +11,12 @@ class CategoriesController < ApplicationController
   def index
     @categories = @current_blog.categories.all
     @category = @current_blog.categories.new
+    authorize @category
   end
 
   def create
     @category = @current_blog.categories.new(secure_params)
+    authorize @category
     if @category.save
       redirect_to blog_categories_path(@current_blog), :notice => "Category added."
     else
@@ -21,7 +25,8 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    category = @current_blog.categories.find(params[:id])
+    category = @current_blog.categories.find_by(:name => params[:id])
+    authorize category
     if category.destroy
       redirect_to blog_categories_path(@current_blog), :notice => "Category removed."
     else

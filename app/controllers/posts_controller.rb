@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_filter :authenticate_user!
+  after_action :verify_authorized
   before_action :find_blog
   layout "dashboard_site"
 
@@ -8,11 +10,13 @@ class PostsController < ApplicationController
 
   def new
     @post = @current_blog.posts.new
+    authorize @post
     @categories = @current_blog.categories.all
   end
 
   def create
     post = @current_blog.posts.new(secure_params)
+    authorize post
     if post.save
       redirect_to dashboard_path(@current_blog), :notice => "Post added."
     else
@@ -22,11 +26,13 @@ class PostsController < ApplicationController
 
   def edit
     @post = @current_blog.posts.find(params[:id])
+    authorize @post
     @categories = @current_blog.categories.all
   end
 
   def update
     @post = @current_blog.posts.find(params[:id])
+    authorize @post
     if @post.update_attributes(secure_params)
       redirect_to dashboard_path(@current_blog), :notice => "Post updated."
     else
@@ -36,6 +42,7 @@ class PostsController < ApplicationController
 
   def destroy
     post = @current_blog.posts.find(params[:id])
+    authorize post
     post.deleted = true
     if post.save
       redirect_to dashboard_path(@current_blog), :notice => "Post destroyed. #{ActionController::Base.helpers.link_to 'Undo', revert_blog_post_path(:id => post.id)}"
@@ -46,6 +53,7 @@ class PostsController < ApplicationController
 
   def revert
     post = @current_blog.posts.unscoped.find(params[:id])
+    authorize post, :destroy?
     post.deleted = false
     if post.save
       redirect_to dashboard_path(@current_blog), :notice => "Post reverted."

@@ -1,4 +1,6 @@
 class DashboardController < ApplicationController
+  before_filter :authenticate_user!
+  after_action :verify_authorized
   before_action :find_blog
   layout "dashboard_site"
 
@@ -11,6 +13,7 @@ class DashboardController < ApplicationController
   end
 
   def index
+    authorize @current_blog
     if @current_blog.blank?
       redirect_to new_blog_path, :alert => "Create a blog first."
       return
