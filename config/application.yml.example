@@ -21,7 +21,7 @@ BING_APP_CLIENT_ID:
 BING_APP_CLIENT_SECRET:
 GMAIL_USERNAME: Your_Username
 GMAIL_PASSWORD: Your_Password
-APP_NAME: MDwriter.io
+APP_NAME: Mdtyper
 DOMAIN_NAME: example.com
 ADMIN_NAME: First User
 ADMIN_EMAIL: user@example.com
