@@ -23,11 +23,7 @@
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <%= link_to 'About', page_path('about') %>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="#contact">Contact</a>
+                        <a href="mailto:hi@<%= Rails.application.secrets.domain_name %>">Contact</a>
                         </li>
                     </ul>
                     <p class="copyright text-muted small">Copyright &copy; <%= Rails.application.secrets.app_name %> 2014. All Rights Reserved</p>
