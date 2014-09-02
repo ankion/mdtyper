@@ -22,7 +22,7 @@
   </article>
   <hr>
 
-  <% if @current_blog.disqus_key %>
+  <% if not @current_blog.disqus_key.blank? %>
   <!-- Blog Comments -->
   <div id="disqus_thread"></div>
   <script type="text/javascript">
