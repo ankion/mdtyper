@@ -13,6 +13,9 @@
         <a href="#link" data-name="link" class="btn btn-default" data-no-turbolink="true"><i class="fa fa-link"></i></a>
         <a href="#image" data-name="image" class="btn btn-default" data-no-turbolink="true"><i class="fa fa-file-image-o"></i></a>
       </div>
+      <div class="btn-group">
+        <a href="https://help.github.com/articles/markdown-basics" target="_new" data-name="help" class="btn btn-default" data-no-turbolink="true"><i class="fa fa-question"></i></a>
+      </div>
     </div>
   </div>
   <div>
