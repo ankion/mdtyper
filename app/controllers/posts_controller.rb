@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def find_blog
     @current_blog = current_user.blogs.find_by(:subdomain => params[:blog_id])
+    @current_blog.filepicker_key = ENV['FILEPICKER_KEY'] if @current_blog.filepicker_key.blank?
   end
 
   def new
