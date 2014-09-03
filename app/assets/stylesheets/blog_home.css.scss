@@ -23,6 +23,16 @@ img {
   width: 100%;
 }
 
+.nav-image {
+  background-color: transparent;
+  .page-header {
+    border-bottom: none;
+  }
+  a {
+    color: rgba(255,255,255,0.97);
+  }
+}
+
 #sidebar-toggle {
   font-size: x-large;
   padding-top: 0.5em;

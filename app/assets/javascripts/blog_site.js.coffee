@@ -13,6 +13,16 @@ didScroll = false
 lastScrollTop = 0
 delta = 5
 navbarHeight = $('.header').outerHeight()
+introHeight = $('.intro-header').outerHeight()
+
+hasIntroImage = ->
+  st = $(this).scrollTop()
+  if st >= introHeight
+    $('.header').removeClass('nav-image')
+  else
+    $('.header').addClass('nav-image')
+
+hasIntroImage()
 
 $(window).scroll (event) ->
   didScroll = true
@@ -20,6 +30,7 @@ $(window).scroll (event) ->
 setInterval (->
   if didScroll
     hasScrolled()
+    hasIntroImage()
     didScroll = false
 ), 250
 

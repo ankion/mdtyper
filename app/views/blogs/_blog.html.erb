@@ -1,6 +1,10 @@
 <%= simple_form_for blog, :url => params[:id] ? blog_path(params[:id]) : nil,
   html: { class: 'form-horizontal' },
   wrapper: :horizontal_form do |f| %>
+    <%= f.input :image_url, :wrapper => :append do %>
+      <%= f.input_field :image_url, :class => 'form-control' %>
+      <a href="#upload-image" data-name="upload-image" data-no-turbolink="true" class="input-group-addon">Upload</a>
+    <% end %>
     <%= f.input :subdomain, :wrapper => :append do %>
       <%= content_tag :span, "http://", :class => 'input-group-addon' %>
       <%= f.input_field :subdomain, :class => 'form-control' %>
@@ -19,3 +23,13 @@
     <%= f.input :ga_key, label: 'Google Analytics' %>
     <%= f.submit :class => 'btn btn-primary pull-right' %>
   <% end %>
+<% content_for :javascript do %>
+  <script>
+    $('a[data-name=upload-image').click(function() {
+      filepicker.setKey('<%= ENV['FILEPICKER_KEY'] %>');
+      filepicker.pick(function(InkBlob){
+        $('#blog_image_url').val(InkBlob.url)
+      });
+    });
+  </script>
+<% end %>

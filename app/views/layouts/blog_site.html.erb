@@ -7,6 +7,15 @@
     <%= stylesheet_link_tag 'blog_home', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <% if not @current_blog.image_url.blank? %>
+    <style>
+      .intro-header {
+        background: url('<%= @current_blog.image_url %>') no-repeat center center;
+        background-size: cover;
+        height: 35em;
+      }
+    </style>
+    <% end %>
   </head>
   <body>
     <div id="wrapper">
@@ -19,6 +28,7 @@
     </header>
     <!-- Sidebar -->
     <%= render 'layouts/blog/categories' %>
+    <div class="intro-header"></div>
     <!-- Page Content -->
     <div class="container">
 

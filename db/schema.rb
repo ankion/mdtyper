@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901081058) do
+ActiveRecord::Schema.define(version: 20140903024332) do
 
   create_table "blogs", force: true do |t|
     t.integer  "user_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20140901081058) do
     t.integer  "per_page",       default: 10
     t.string   "fqdn"
     t.string   "ga_key"
+    t.string   "image_url"
   end
 
   add_index "blogs", ["subdomain"], name: "index_blogs_on_subdomain", unique: true, using: :btree
