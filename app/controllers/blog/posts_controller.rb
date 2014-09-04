@@ -1,4 +1,4 @@
-class Blog::PostsController < Blog::ApplicationController
+class Blog::PostsController < Blog::PostApplicationController
   def index
     @posts = @current_blog.posts.publish.page(params[:page]).per(per_page)
     @categories = @current_blog.categories.all

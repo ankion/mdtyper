@@ -1,4 +1,4 @@
-class Blog::CategoriesController < Blog::ApplicationController
+class Blog::CategoriesController < Blog::PostApplicationController
   def index
     @category = @current_blog.categories.find_by(:name => params[:id])
     @posts = @category.posts.publish.page(params[:page]).per(per_page)
