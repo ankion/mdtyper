@@ -19,7 +19,9 @@
     </section>
     <hr>
     <div class="misc-bar">
+      <% if not @current_blog.disqus_key.blank? %>
       <i class="fa fa-comment"></i> <%= link_to 'Comments', "#{site_post_url(post)}#disqus_thread" %>
+      <% end %>
     </div>
   <% end %>
 
