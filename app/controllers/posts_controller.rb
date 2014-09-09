@@ -16,12 +16,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = @current_blog.posts.new(secure_params)
-    authorize post
-    if post.save
-      redirect_to dashboard_path(@current_blog), :notice => "Post added."
+    @post = @current_blog.posts.new(secure_params)
+    authorize @post
+    if @post.save
+      redirect_to edit_blog_post_path(@current_blog, @post)
     else
-      render :new
+      redirect_to dashboard_path(@current_blog), :notice => "Unable to add post."
     end
   end
 

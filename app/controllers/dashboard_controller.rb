@@ -19,5 +19,6 @@ class DashboardController < ApplicationController
       return
     end
     @posts = @current_blog.posts.all
+    @post = @current_blog.posts.new
   end
 end
