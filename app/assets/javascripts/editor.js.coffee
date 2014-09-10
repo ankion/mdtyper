@@ -5,6 +5,9 @@
   <div class="md-toolbar">
     <div class="btn-toolbar" role="toolbar">
       <div class="btn-group">
+        <a href="#preview" data-name="preview" class="btn btn-default" data-no-turbolink="true"><i class="fa fa-eye"></i></a>
+      </div>
+      <div class="btn-group">
         <a href="#undo" data-name="undo" class="btn btn-default" data-no-turbolink="true"><i class="fa fa-undo"></i></a>
         <a href="#redo" data-name="redo" class="btn btn-default" data-no-turbolink="true"><i class="fa fa-repeat"></i></a>
       </div>
@@ -18,7 +21,17 @@
       </div>
     </div>
   </div>
-  <div>
+  <div class="modal fade bs-preview-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Preview</h4>
+        </div>
+        <div class="modal-body">
+        </div>
+      </div>
+    </div>
+  </div>
   """)
   e_obj = $("<div class='md-editor'><div id='editor'></div></div>")
   e_obj.insertAfter(ta_obj.parent())
@@ -38,6 +51,21 @@
   $(".md-toolbar").affix offset:
     top: $('.md-toolbar').offset().top - $('.navbar').outerHeight(true)
     bottom: 0
+
+  $('.bs-preview-modal-lg').on 'shown.bs.modal', ->
+    $.ajax({
+      url: "#{location.pathname.replace('/edit', '/preview')}"
+      type: 'post'
+      data:
+        md_content: "#{ta_obj.val()}"
+
+      dataType: 'html'
+      success: (html) ->
+        $('.bs-preview-modal-lg .modal-body').html(html)
+      error: ->
+        console.log('error')
+        $(".bs-preview-modal-lg").modal show: false
+    })
 
   $('.btn-toolbar .btn-group a[data-name=link]').popover
       html: true
@@ -86,6 +114,7 @@ click_toolbar_button = (editor, button) ->
   switch button.data('name')
     when 'undo' then editor.undo()
     when 'redo' then editor.redo()
+    when 'preview' then $('.bs-preview-modal-lg').modal()
     when 'more'
       editor.navigateLineEnd()
       editor.insert('\n<!--more-->\n')

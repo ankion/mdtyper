@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :blogs do
     resources :posts do
       get 'revert', :on => :member
+      post 'preview', :on => :member
     end
     resources :categories
   end
