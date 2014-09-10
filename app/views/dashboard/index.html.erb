@@ -16,7 +16,7 @@
         <td><%= localize(post.publish_date, :format => :long) %></td>
         <td><%= post.title %></td>
         <td><%= post.status %></td>
-        <td><%= link_to 'Edit', edit_blog_post_path(@current_blog, post) %></td>
+        <td><%= link_to 'Edit', edit_blog_post_path(@current_blog, post), 'data-no-turbolink' => true %></td>
         <td><%= link_to 'Remove', blog_post_path(@current_blog, post), :method => :delete %></td>
       </tr>
     <% end %>

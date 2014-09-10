@@ -30,7 +30,8 @@ class BlogsController < ApplicationController
 
   def edit
     @blog = current_user.blogs.find_by(:subdomain => params[:id])
-    @current_blog = @blog
+    @current_blog = @blog.dup
+    @current_blog.filepicker_key = ENV['FILEPICKER_KEY'] if @current_blog.filepicker_key.blank?
     authorize @blog
   end
 

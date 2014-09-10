@@ -26,7 +26,6 @@
 <% content_for :javascript do %>
   <script>
     $('a[data-name=upload-image').click(function() {
-      filepicker.setKey('<%= ENV['FILEPICKER_KEY'] %>');
       filepicker.pick(function(InkBlob){
         $('#blog_image_url').val(InkBlob.url)
       });
