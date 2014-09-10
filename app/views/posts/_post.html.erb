@@ -1,14 +1,22 @@
 <%= simple_form_for post, 
   :url => (action_name == 'edit' ? blog_post_path(@current_blog, post) : blog_posts_path),
-  html: { class: 'form-horizontal' },
-  wrapper: :horizontal_form do |f| %>
-  <%= f.input :publish_date, :as => :string, :input_html => { :value => f.object.publish_date.strftime('%Y-%m-%d %T') } %>
-  <%= f.input :title %>
-  <%= f.input :permalink if action_name == 'edit' %>
-  <%= f.input :status, collection: Post.statuses.keys.map {|status| [status.titleize,status]}, include_blank: false %>
+  html: { class: 'form-horizontal' } do |f| %>
+  <div class="col-md-9">
+  <%= f.input :status, :label => false, collection: Post.statuses.keys.map {|status| [status.titleize,status]}, include_blank: false %>
+  <%= f.input :publish_date, :as => :string, :label => false, :input_html => { :value => f.object.publish_date.strftime('%Y-%m-%d %T') } %>
+  <%= f.input :title, :label => false %>
+  <%= f.input :permalink, :label => false if action_name == 'edit' %>
   <%= f.input :content, :label => false %>
-    <%= f.association :categories, collection: @categories, as: :check_boxes, wrapper: :horizontal_radio_and_checkboxes %>
   <%= f.submit :class => 'btn btn-primary pull-right', :id => 'submit' %>
+  </div>
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">Categories</div>
+      <div class="panel-body">
+        <%= f.association :categories, :label => false, collection: @categories, as: :check_boxes, wrapper: :horizontal_radio_and_checkboxes %>
+      </div>
+    </div>
+  </div>
 <% end %>
 <% content_for :javascript do %>
 <script type="text/javascript">filepicker.setKey('<%= @current_blog.filepicker_key %>');</script>

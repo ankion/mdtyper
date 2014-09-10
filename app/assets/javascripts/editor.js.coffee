@@ -25,13 +25,19 @@
   tb_obj.insertAfter(ta_obj.parent())
   editor = ace.edit('editor')
   editor.session.setValue(ta_obj.val(), -1)
+  editor.focus()
   editor.setShowPrintMargin(false)
   editor.session.setUseWrapMode(true)
   editor.renderer.setShowGutter(false)
   editor.setTheme("ace/theme/github")
   editor.getSession().setMode("ace/mode/markdown")
+  editor.setOptions maxLines: Infinity
   editor.getSession().on "change", ->
     ta_obj.val editor.getSession().getValue()
+
+  $(".md-toolbar").affix offset:
+    top: $('.md-toolbar').offset().top - $('.navbar').outerHeight(true)
+    bottom: 0
 
   $('.btn-toolbar .btn-group a[data-name=link]').popover
       html: true
