@@ -9,6 +9,7 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <%= render 'layouts/gtm' %>
     <%= render 'layouts/messages' %>
     <%= render 'layouts/navigation' %>
     <%= yield %>
@@ -31,6 +32,5 @@
             </div>
         </div>
     </footer>
-    <%= render 'layouts/gtm' %>
   </body>
 </html>
