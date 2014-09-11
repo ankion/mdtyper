@@ -3,7 +3,7 @@
   <% @posts.each do |post| %>
     <section>
     <h1>
-      <%= link_to post.title, site_post_path(post) %>
+      <%= link_to post.title, site_post_path(post), 'data-no-turbolink' => true %>
     </h1>
     <p class="lead">
     by <%= @current_blog.user.name %>
@@ -13,14 +13,14 @@
     <% post_contents = post.content.split('<!--more-->') %>
     <%= markdown(post_contents.first).html_safe %>
     <% if post_contents.count > 1 %>
-    <a class="btn btn-primary" href="<%= site_post_path(post) %>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+    <a class="btn btn-primary" href="<%= site_post_path(post) %>" data-no-turbolink=" true">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
     <% end %>
 
     </section>
     <hr>
     <div class="misc-bar">
       <% if not @current_blog.disqus_key.blank? %>
-      <i class="fa fa-comment"></i> <%= link_to 'Comments', "#{site_post_url(post)}#disqus_thread" %>
+      <i class="fa fa-comment"></i> <%= link_to 'Comments', "#{site_post_url(post)}#disqus_thread", 'data-no-turbolink' => true %>
       <% end %>
     </div>
   <% end %>

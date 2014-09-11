@@ -61,6 +61,16 @@ img {
   width: 100%;
 }
 
+.social-buttons {
+  padding-bottom: 0.5em;
+  .fb-like {
+    span {
+      width: 115px !important;
+      vertical-align: baseline !important;
+    }
+  }
+}
+
 table {
   @extend .table;
 }

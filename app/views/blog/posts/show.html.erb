@@ -22,6 +22,11 @@
 
   </article>
   <hr>
+  <div class="social-buttons">
+    <%= like_button('mdtyper') if @current_blog.facebook_button %>
+    <%= tweet_button(via: nil, count: 'horizontal') if @current_blog.twitter_button %>
+    <%= google_plus_button(size: 'medium', annotation: 'bubble', script: true) if @current_blog.google_button %>
+  </div>
 
   <% if not @current_blog.disqus_key.blank? %>
   <!-- Blog Comments -->
@@ -40,7 +45,6 @@
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-  <hr>
   <!-- Posted Comments -->
   <% end %>
 
