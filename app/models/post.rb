@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :categories
   after_initialize :assign_values
   chinese_permalink :title
+  validates_presence_of :title
 
   enum status: [:draft, :publish]
 
