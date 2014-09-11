@@ -38,6 +38,12 @@ footer {
   .post_status {
     width: 150px;
   }
+  #post_title {
+    font-size: large;
+  }
+  #post_publish_date, #post_permalink {
+    font-size: small;
+  }
   .form-group {
     padding: 0px 15px;
   }
