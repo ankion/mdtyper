@@ -16,6 +16,16 @@ img {
   margin: 0 auto;
 }
 
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Lantinghei TC", "Hiragino Kaku Gothic Pro", "Microsoft Jhenghei", sans-serif;
+}
+
 .header {
   transition: top 0.2s ease-in-out;
   top: 0;

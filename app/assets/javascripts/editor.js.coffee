@@ -44,7 +44,7 @@
     showGutter: false
     theme: "ace/theme/github"
     mode: "ace/mode/markdown"
-    fontSize: "14px"
+    fontSize: "17px"
   editor.setAutoScrollEditorIntoView(true)
   editor.session.setValue(ta_obj.val(), -1)
   editor.focus()
