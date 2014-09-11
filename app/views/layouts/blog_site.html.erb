@@ -22,7 +22,7 @@
     <header class="header">
       <a href="#sidebar-toggle" id="sidebar-toggle" class="pull-left"><span class="glyphicon glyphicon-list"></span></a>
       <h1 class="page-header">
-        <%= link_to @current_blog.title, site_posts_path %>
+        <%= link_to @current_blog.title, site_posts_path, 'data-no-turbolink' => true %>
         <small class="hidden-xs"><%= @current_blog.subtitle %></small>
       </h1>
     </header>
