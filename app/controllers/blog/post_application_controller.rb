@@ -21,6 +21,7 @@ class Blog::PostApplicationController < ActionController::Base
       end
 
     end  
+    @current_blog.image_url = ActionController::Base.helpers.asset_path('intro-bg.jpg') if @current_blog.image_url.blank?
   end
 
   def per_page
