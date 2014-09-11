@@ -28,6 +28,7 @@
 
     </div>
     <!-- /.container -->
+    <%= render 'layouts/gtm' %>
     <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
     <script type="text/javascript">filepicker.setKey('<%= @current_blog.filepicker_key %>');</script>
     <%= javascript_include_tag 'dashboard', 'data-turbolinks-track' => true %>
