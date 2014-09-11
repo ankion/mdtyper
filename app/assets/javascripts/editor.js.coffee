@@ -37,14 +37,18 @@
   e_obj.insertAfter(ta_obj.parent())
   tb_obj.insertAfter(ta_obj.parent())
   editor = ace.edit('editor')
+  editor.setOptions 
+    maxLines: Infinity
+    showPrintMargin: false
+    wrap: true
+    showGutter: false
+    theme: "ace/theme/github"
+    mode: "ace/mode/markdown"
+    fontSize: "14px"
+  editor.setAutoScrollEditorIntoView(true)
   editor.session.setValue(ta_obj.val(), -1)
   editor.focus()
-  editor.setShowPrintMargin(false)
-  editor.session.setUseWrapMode(true)
-  editor.renderer.setShowGutter(false)
-  editor.setTheme("ace/theme/github")
-  editor.getSession().setMode("ace/mode/markdown")
-  editor.setOptions maxLines: Infinity
+
   editor.getSession().on "change", ->
     ta_obj.val editor.getSession().getValue()
 
