@@ -6,6 +6,7 @@ class Post < ActiveRecord::Base
   after_initialize :assign_values
   chinese_permalink :title
   validates_presence_of :title
+  acts_as_taggable
 
   enum status: [:draft, :publish]
 

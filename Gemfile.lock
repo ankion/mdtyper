@@ -54,6 +54,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.4.1)
+      activerecord (>= 3.2, < 5)
     addressable (2.3.6)
     akami (1.2.2)
       gyoku (>= 0.4.0)
@@ -331,6 +333,7 @@ PLATFORMS
 
 DEPENDENCIES
   ace-rails-ap
+  acts-as-taggable-on
   better_errors
   binding_of_caller
   bootstrap-sass

@@ -1,0 +1,43 @@
+<% if @current_tags.any? and @rel_tags.any? %>
+  <div class="tags-bar">
+    <i class="fa fa-tags"></i>
+    <% @current_tags.each do |tag| %>
+      <% remove_tag = @current_tags - [tag] %>
+      <% if remove_tag.any? %>
+        <%= link_to sanitize("#{tag} <i class=\"glyphicon glyphicon-remove\"></i>"), { :action => :tag_cloud, :id => (@current_tags - [tag]).join(',') }, :class => 'label label-success' %>
+      <% else %>
+        <%= link_to sanitize("#{tag} <i class=\"glyphicon glyphicon-remove\"></i>"), site_posts_path, :class => 'label label-success' %>
+      <% end %>
+    <% end %>
+    <% @rel_tags.each do |tag| %>
+      <% next if @current_tags.include? tag.name %>
+      <%= link_to tag.name, { :action => :tag_cloud, :id => @current_tags.push(tag.name).join(',') }, :class => 'label label-primary' %>
+    <% end %>
+  </div>
+<% end %>
+<% if @category %>
+  <p><h3>Category: <%= @category.name %></h3></p>
+<% end %>
+<hr>
+<!-- Blog Entries Column -->
+<div class="col-md-12">
+  <ul>
+  <% @posts.each do |post| %>
+    <li>
+      <span><%= localize(post.publish_date, :format => :long) %></span>
+      <span><%= link_to post.title, site_post_path(post), 'data-no-turbolink' => true %></span>
+      </li>
+  <% end %>
+  </ul>
+
+  <!-- Pager -->
+  <ul class="pager">
+    <li class="previous">
+    <%= link_to_next_page @posts, sanitize("&larr; Older") %>
+    </li>
+    <li class="next">
+    <%= link_to_previous_page @posts, sanitize("Newer &rarr;") %>
+    </li>
+  </ul>
+
+</div>

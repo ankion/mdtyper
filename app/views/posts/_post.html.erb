@@ -7,6 +7,7 @@
   <%= f.input :title, :label => false %>
   <%= f.input :permalink, :label => false if action_name == 'edit' %>
   <%= f.input :content, :label => false %>
+  <%= f.input :tag_list, :label => false, :placeholder => 'Add tags (Separated by comma)' %>
   <%= f.submit :class => 'btn btn-primary pull-right', :id => 'submit' %>
   </div>
   <div class="col-md-3">

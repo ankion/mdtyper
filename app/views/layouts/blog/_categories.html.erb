@@ -1,11 +1,19 @@
   <aside>
     <div id="sidebar-wrapper">
-      <ul class="sidebar-nav">
+      <div class="sidebar-nav">
+      <ul>
         <li class="sidebar-brand">Blog Categories</li>
         <% @categories.each do |category| %>
           <li><a href="<%= site_category_path(category) %>"><%= category.name %></a></li>
         <% end %>
       </ul>
+      <div class="tag-cloud">
+        <div class="tag-brand">Tag Cloud</div>
+        <% tag_cloud(@tags, %w(tag-1 tag-2 tag-3 tag-4)) do |tag, css_class| %>
+          <%= link_to tag.name, { :action => :tag_cloud, :controller => "blog/posts", :id => tag.name }, :class => css_class %>
+        <% end %>
+      </div>
+    </div>
     </div>
     <!-- /#sidebar-wrapper -->
   </aside>

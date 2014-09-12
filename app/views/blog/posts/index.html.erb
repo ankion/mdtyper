@@ -1,3 +1,13 @@
+<% if @current_tags and @rel_tags != @current_tags %>
+  <div class="tags-bar">
+    <i class="fa fa-tags"></i>
+    <%= @current_tags.join(' ') %>
+    <% @rel_tags.each do |tag| %>
+      <% next if @current_tags.include? tag.name %>
+      <%= link_to tag.name, { :action => :tag_cloud, :id => @current_tags.push(tag.name).join(',') } %>
+    <% end %>
+  </div>
+<% end %>
 <!-- Blog Entries Column -->
 <div class="col-md-12">
   <% @posts.each do |post| %>
@@ -11,7 +21,7 @@
     <p><span class="glyphicon glyphicon-time"></span> Posted on <%= localize(post.publish_date, :format => :long) %></p>
     <hr>
     <% post_contents = post.content.split('<!--more-->') %>
-    <%= markdown(post_contents.first).html_safe %>
+    <%= markdown(post_contents.first).html_safe if post_contents.first %>
     <% if post_contents.count > 1 %>
     <a class="btn btn-primary" href="<%= site_post_path(post) %>" data-no-turbolink=" true">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
     <% end %>

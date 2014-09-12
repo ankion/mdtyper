@@ -70,6 +70,6 @@ class PostsController < ApplicationController
   end
 
   def secure_params
-    params.require(:post).permit(:publish_date, :title, :permalink, :status, :content, :category_ids => [], :categories_attributes => [:id, :name])
+    params.require(:post).permit(:publish_date, :title, :permalink, :status, :tag_list, :content, :category_ids => [], :categories_attributes => [:id, :name])
   end
 end

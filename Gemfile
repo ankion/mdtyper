@@ -28,6 +28,7 @@ gem 'kaminari'
 gem 'figaro'
 gem 'chinese_permalink', github: 'ankion/chinese_permalink', branch: 'master'
 gem "social-buttons", github: 'ankion/social-buttons', branch: 'master'
+gem 'acts-as-taggable-on'
 
 # assets
 gem 'rails-assets-highlightjs'
