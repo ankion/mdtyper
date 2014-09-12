@@ -30,7 +30,11 @@
     </div>
     <!-- /.container -->
     <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
-    <script type="text/javascript">filepicker.setKey('<%= @current_blog.filepicker_key %>');</script>
+    <% if @current_blog %>
+      <script type="text/javascript">filepicker.setKey('<%= @current_blog.filepicker_key %>');</script>
+    <% else %>
+      <script type="text/javascript">filepicker.setKey('<%= ENV['FILEPICKER_KEY'] %>');</script>
+    <% end %>
     <%= javascript_include_tag 'dashboard', 'data-turbolinks-track' => true %>
     <%= yield :javascript %>
   </body>
