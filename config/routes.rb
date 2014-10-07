@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get '/posts/:id' => 'blog/posts#show', :as => 'site_post'
     get '/categories/:id' => 'blog/categories#index', :as => 'site_category'
     get '/tags/:id' => 'blog/posts#tag_cloud'
+    get '/feed' => 'blog/posts#feed'
   end 
 
   root to: 'visitors#index'

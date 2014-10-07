@@ -5,6 +5,14 @@ class Blog::PostsController < Blog::PostApplicationController
     @tags = @current_blog.posts.tag_counts_on(:tags)
   end
 
+  def feed
+    @posts = @current_blog.posts.publish.page(params[:page]).limit(20)
+
+    respond_to do |format|
+      format.rss { render :layout => false }
+    end
+  end
+
   def show
     @post = @current_blog.posts.publish.find(params[:id])
     @categories = @current_blog.categories.all
