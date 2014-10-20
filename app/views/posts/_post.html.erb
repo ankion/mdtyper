@@ -1,4 +1,4 @@
-<%= simple_form_for post, 
+<%= simple_form_for post,
   :url => blog_post_path(@current_blog, post),
   html: { class: 'form-horizontal' } do |f| %>
   <div class="col-md-9">
@@ -8,7 +8,9 @@
   <%= f.input :permalink, :label => false, :placeholder => 'Permalink' %>
   <%= f.input :content, :label => false %>
   <%= f.input :tag_list, :label => false, :placeholder => 'Add tags (Separated by comma)' %>
-  <%= f.submit :class => 'btn btn-primary pull-right', :id => 'submit' %>
+    <div class="form-action">
+      <%= f.submit :class => 'btn btn-primary', :id => 'submit' %>
+    </div>
   </div>
   <div class="col-md-3">
     <div class="panel panel-default">
