@@ -1,7 +1,7 @@
 Mdtyper
 =========
 
-This application is a markdown blogging plaform, it available on [mdtyper.com](http://mdtyper.com).
+This application is a markdown blogging plaform.
 
 Contributing
 ------------
